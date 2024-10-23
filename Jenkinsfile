@@ -18,7 +18,7 @@ node {
     repo_ssh_url: "https://github.com/ayush090909/spring3hibernate.git",
     repo_branch: "ayush",
     repo_url_type: "http",
-    jenkins_git_creds_id: "github-rajat",
+    jenkins_git_creds_id: "ayush-github-id",
     source_code_path: "/",
  
      // Dependency Scanning
