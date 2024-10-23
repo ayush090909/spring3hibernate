@@ -26,7 +26,7 @@ node {
     dependency_scan_tool: "owasp",
     owasp_project_name: "owasp",
     owasp_report_publish: true,
-    owasp_report_format: "html",
+    owasp_report_format: "json",
     fail_job_if_dependency_returned_exception: true,
  
     // Creds Scanning
