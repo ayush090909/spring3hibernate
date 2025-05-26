@@ -25,6 +25,8 @@ hibernate.hbm2ddl.auto=update
 upload.dir=c:/uploads
 ```
 
+option
+
 **Note:- The location of file is [src/main/resources/database.properties](src/main/resources/database.properties)**
 
 ## How to Run
