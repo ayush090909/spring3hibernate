@@ -1,13 +1,26 @@
-FROM maven:3.3-jdk-8 as builder
-COPY . /usr/src/mymaven/
-WORKDIR /usr/src/mymaven/
-RUN mvn clean install
-RUN mvn clean package
-RUN mvn package 
+# ---------- Build Stage ----------
+FROM --platform=$BUILDPLATFORM maven:3.9.6-eclipse-temurin-17 AS builder
 
-FROM tomcat:7-jre7-alpine
-MAINTAINER "opstree <opstree@gmail.com>"
+WORKDIR /usr/src/app
+
+COPY pom.xml .
+# go-offline removed due to legacy deps
+# RUN mvn -B -q dependency:go-offline
+
+COPY src ./src
+RUN mvn -B clean package -DskipTests
+
+
+# ---------- Runtime Stage ----------
+FROM tomcat:9.0.85-jdk17-temurin
+
+LABEL maintainer="opstree <opstree@gmail.com>"
+LABEL app="spring3-hibernate"
+
 RUN rm -rf /usr/local/tomcat/webapps/*
-COPY --from=builder /usr/src/mymaven/target/Spring3HibernateApp.war /usr/local/tomcat/webapps/ROOT.war
-WORKDIR /usr/local/tomcat/webapps/
+
+COPY --from=builder /usr/src/app/target/*.war \
+  /usr/local/tomcat/webapps/ROOT.war
+
 EXPOSE 8080
+CMD ["catalina.sh", "run"]
