@@ -17,7 +17,7 @@ node {
     // VCS MANAGEMENT 
     repo_https_url: "https://github.com/ayush090909/spring3hibernate.git",
     repo_ssh_url: "https://github.com/ayush090909/spring3hibernate.git",
-    repo_branch: "opstree",
+    repo_branch: "master",
     repo_url_type: "http",
     jenkins_git_creds_id: "github-token",
     source_code_path: "",
