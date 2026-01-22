@@ -1,18 +1,16 @@
 # ---------- Build Stage ----------
-FROM --platform=$BUILDPLATFORM maven:3.9.6-eclipse-temurin-17 AS builder
+FROM --platform=$BUILDPLATFORM maven:3.9.6-eclipse-temurin-8 AS builder
 
 WORKDIR /usr/src/app
 
 COPY pom.xml .
-# go-offline removed due to legacy deps
-# RUN mvn -B -q dependency:go-offline
-
 COPY src ./src
+
 RUN mvn -B clean package -DskipTests
 
 
 # ---------- Runtime Stage ----------
-FROM tomcat:9.0.85-jdk17-temurin
+FROM tomcat:8.5-jdk8-temurin
 
 LABEL maintainer="opstree <opstree@gmail.com>"
 LABEL app="spring3-hibernate"
