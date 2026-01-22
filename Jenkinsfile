@@ -36,7 +36,7 @@ node {
     gitleaks_report_format: "json",
     gitleaks_report_jenkins_publish: true,
 
-    perform_code_build: true,
+    perform_code_build: false,
     build_tool: "maven",
     pom_location: " ",
 
@@ -63,8 +63,8 @@ node {
     image_name: "opstree",
     dockerfile_location: "Dockerfile",
     dockerfile_context: "",
-    codeartifact_dependency: true,
-    codeartifact_domain: "ecomexpress",
+    codeartifact_dependency: false,
+    codeartifact_domain: "",
     codeartifact_owner: "543339517346",
   
     // Image scaning
