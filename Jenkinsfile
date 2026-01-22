@@ -15,8 +15,8 @@ node {
     clean_when_build_unstable: true,
 
     // VCS MANAGEMENT 
-    repo_https_url: "https://scm.ecomexpress.in/scm/~ayush.k_ecomexpress.in/ayush-lastmile2.0.git",
-    repo_ssh_url: "https://scm.ecomexpress.in/scm/~ayush.k_ecomexpress.in/ayush-lastmile2.0.git",
+    repo_https_url: "https://github.com/ayush090909/spring3hibernate.git",
+    repo_ssh_url: "https://github.com/ayush090909/spring3hibernate.git",
     repo_branch: "opstree",
     repo_url_type: "http",
     jenkins_git_creds_id: "github-token",
